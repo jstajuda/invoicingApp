@@ -1,3 +1,5 @@
+import { Customer } from './customer/customer';
+
 export interface InvoiceSummary {
     netto: number;
     brutto: number;
@@ -10,7 +12,8 @@ export interface Client {
 }
 
 export interface Invoice {
-    client?: Client;
+    seller?: Customer;
+    buyer?: Customer;
     saleDate: Date;
     items: InvoiceItem[];
 }

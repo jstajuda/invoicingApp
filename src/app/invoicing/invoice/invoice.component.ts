@@ -1,5 +1,7 @@
+import { Client } from './../model/item';
 import { Component, OnInit } from '@angular/core';
 import { Invoice, InvoiceSummary } from '../model/item';
+import { Customer } from '../model/customer/customer';
 
 @Component({
   selector: 'app-invoice',
@@ -16,7 +18,9 @@ export class InvoiceComponent implements OnInit {
   ngOnInit() {
     this.invoice = {
       saleDate: new Date(),
-      items: []
+      items: [],
+      seller: new Customer(1, 'Seller from invoice', '123456789', 'street 1/2', 'city', '12-345', '123 456 789'),
+      buyer: new Customer(1, 'Buyer from invoice', '123456789', 'street 1/2', 'city', '12-345', '123 456 789')
     }
 
     this.invoiceSummary = this.recalculateSummary(this.invoice);

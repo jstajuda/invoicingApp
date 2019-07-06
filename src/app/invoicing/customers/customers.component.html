@@ -1,0 +1,21 @@
+<h2>Customers list</h2>
+
+<table class="table">
+<thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Tax Number</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Zip Code</th>
+    <th>Actions</th>
+</thead>
+<tr *ngFor="let customer of customers">
+    <td>{{customer.id}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.taxNumber}}</td>
+    <td>{{customer.streetAddress}}</td>
+    <td>{{customer.city}}</td>
+    <td>{{customer.zipCode}}</td>
+</tr>
+</table>
