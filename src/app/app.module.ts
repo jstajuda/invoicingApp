@@ -18,7 +18,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     AppRoutingModule,
     InvoicingModule,
     HeroModule,
-    ContactModule
+    ContactModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

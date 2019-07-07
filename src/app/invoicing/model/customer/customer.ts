@@ -11,11 +11,11 @@ export class Customer {
 
     constructor(id: number,
                 name: string,
-                taxNumber: string,
-                streetAddress: string,
-                city: string,
-                zipCode: string,
-                phoneNumber: string) {
+                taxNumber?: string,
+                streetAddress?: string,
+                city?: string,
+                zipCode?: string,
+                phoneNumber?: string) {
         this.id = id;
         this.name = name;
         this.taxNumber = taxNumber;

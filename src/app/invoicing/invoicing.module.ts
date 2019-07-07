@@ -1,6 +1,7 @@
+import { CustomerServiceService } from './customer-service.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvoicePositionsComponent } from './invoice-positions/invoice-positions.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { SinglePositionComponent } from './single-position/single-position.component';
@@ -12,14 +13,21 @@ import { HttpItemCatalog } from './model/item-catalog/http-item-catalog';
 import { InvoiceSummaryComponent } from './invoice-summary/invoice-summary.component';
 import { CustomersComponent } from './customers/customers.component';
 import { InvoiceHeaderComponent } from './invoice-header/invoice-header.component';
+import { SingleCustomerPositionComponent } from './single-customer-position/single-customer-position.component';
+import { CustomerRepository } from './model/customer/customer-repository';
+import { CustomersCreateComponent } from './customers-create/customers-create.component';
+import { CustomersDetailsComponent } from './customers-details/customers-details.component';
+import { CustomersEditComponent } from './customers-edit/customers-edit.component';
 
 @NgModule({
   declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent, 
-    CustomersComponent, InvoiceHeaderComponent],
+    CustomersComponent, InvoiceHeaderComponent, SingleCustomerPositionComponent, CustomersCreateComponent, 
+    CustomersDetailsComponent, CustomersEditComponent],
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [InvoiceComponent],
   providers: [
@@ -31,6 +39,9 @@ import { InvoiceHeaderComponent } from './invoice-header/invoice-header.componen
     // }
     {
       provide: ItemCatalog, useFactory: (http: HttpClient) => new HttpItemCatalog(http), deps: [HttpClient]
+    },
+    {
+      provide: CustomerRepository, useFactory: () => new CustomerRepository()
     }
   ]
 })
