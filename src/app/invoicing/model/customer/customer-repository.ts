@@ -1,10 +1,14 @@
+import { OnInit } from '@angular/core';
 import { Customer } from './customer';
 import { CustomersComponent } from '../../customers/customers.component';
+import { Observable } from 'rxjs';
+import { last } from 'rxjs/operators';
 // import { fake } from "faker";
 
 export class CustomerRepository {
 
     customerList: Customer[];
+    lastId: number;
 
     constructor() {
         this.customerList = [
@@ -14,6 +18,11 @@ export class CustomerRepository {
             new Customer(4, 'cust 4', '123456789', 'street 1/2', 'city', '12-345', '123 456 789'),
             new Customer(5, 'cust 5', '123456789', 'street 1/2', 'city', '12-345', '123 456 789'),
         ];
+
+        this.lastId = this.customerList.length;
+    }
+
+    OnInit() {
     }
 
     getAll(): Customer[] {
@@ -26,6 +35,7 @@ export class CustomerRepository {
 
     add(customer: Customer) {
         this.customerList.push(customer);
+        this.lastId = customer.id;
     }
 
     update(customer: Customer) {
@@ -40,7 +50,7 @@ export class CustomerRepository {
         return this.customerList.findIndex(c => c.id === customer.id);
     }
 
-    count(): number {
-        return this.customerList.length;
+    getNextId(): number {
+        return this.lastId + 1;
     }
 }

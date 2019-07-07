@@ -1,2 +1,48 @@
-<p>customers-edit works!</p>
-<p>{{customer.name}}</p>
+<h2>Edit customer details: {{customer.name}}</h2>
+
+<form class="form" [formGroup]="editCustomerForm" (ngSubmit)="updateCustomer()" style="max-width: 600px; margin: 0 auto">
+    <!-- name -->
+    <div class="form-group">
+        <label for="name">Company Name</label>
+        <input class="form-control" type="text" id="name" name="name" placeholder="Enter company name" formControlName="name" required>
+        <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">Company name needs to be at least 3 characters long!</div>
+    </div>
+
+    <!-- taxNumber -->
+    <div class="form-group">
+        <label for="taxNumber">{{ name.value ? name.value : 'Company'}}'s tax number</label>
+        <input class="form-control" type="text" id="taxNumber" name="taxNumber" placeholder="Enter company's tax number" formControlName="taxNumber">
+        <div class="alert alert-danger" *ngIf="taxNumber.invalid && (taxNumber.dirty || taxNumber.touched)">Company's tax number must be exactly 9 characters long!</div>
+    </div>
+
+    <!-- streetAddress -->
+    <div class="form-group">
+        <label for="streetAddress">Street Address</label>
+        <input class="form-control" type="text" id="streetAddress" name="streetAddress" placeholder="Enter company's street address" formControlName="streetAddress">
+    </div>
+
+    <!-- city -->
+    <div class="form-group">
+        <label for="city">City</label>
+        <input class="form-control" type="text" id="city" name="city" placeholder="Enter company's city" formControlName="city">
+    </div>
+
+    <!-- zipCode -->
+    <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input class="form-control" type="text" id="zipCode" name="zipCode" placeholder="Enter company's zip code" formControlName="zipCode">
+    </div>
+
+    <!-- phoneNumber -->
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter company's phone number'" formControlName="phoneNumber">
+    </div>
+
+    <!-- submit -->
+    <button class="btn btn-primary" [disabled]="!editCustomerForm.valid">Update customer</button>
+</form>
+
+<pre>
+    {{this.customer | json}}
+</pre>

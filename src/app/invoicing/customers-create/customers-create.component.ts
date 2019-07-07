@@ -36,7 +36,7 @@ export class CustomersCreateComponent implements OnInit {
 
   createCustomer() {
     const customer = new Customer(
-      this.customerRepo.count() + 1,
+      this.customerRepo.getNextId(),
       this.name.value,
       this.taxNumber.value,
       this.streetAddress.value,
