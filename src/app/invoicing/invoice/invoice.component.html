@@ -1,5 +1,9 @@
-<div class="invoice">
-  <app-invoice-header></app-invoice-header>
-  <app-invoice-positions [positions]='invoice.items' (itemsChanged)='updateItems($event)'></app-invoice-positions>
-  <app-invoice-summary [summary]='invoiceSummary'></app-invoice-summary>
+<div class="invoice row">
+  <div class="col-lg-4">
+    <app-invoice-header></app-invoice-header>
+    <app-invoice-summary [summary]='invoiceSummary'></app-invoice-summary>
+  </div>
+  <div class="col-lg-8">
+    <app-invoice-positions [positions]='invoice.items' (itemsChanged)='updateItems($event)'></app-invoice-positions>
+  </div>
 </div>

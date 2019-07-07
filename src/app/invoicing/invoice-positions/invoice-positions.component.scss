@@ -1,11 +1,9 @@
 .invoice-positions {
     &__actions {
-        display: flex;   
-        align-items: center;
-        justify-content: center
+        text-align: right;
     }
 
     &__add-action {
-        margin: auto
+        margin: auto;
     }
 }

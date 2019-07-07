@@ -1,6 +1,16 @@
-<ul>
-  <li>Gross: {{ summary.brutto }}</li>
-  <li>Netto: {{ summary.netto }}</li>
-  <li>Tax: {{ summary.tax }}</li>
-</ul>
-
+<table class="table">
+  <thead class="thead-dark">
+    <th colspan="2">Invoice summary</th></thead>
+  <tr>
+    <td>Netto</td>
+    <td>{{summary.netto | currency:' '}} zł</td>
+  </tr>
+  <tr>
+    <td>Tax</td>
+    <td>{{summary.tax | currency:' '}} zł</td>
+  </tr>
+  <tr>
+    <td>Brutto</td>
+    <td>{{summary.brutto | currency:' '}} zł</td>
+  </tr>
+</table>

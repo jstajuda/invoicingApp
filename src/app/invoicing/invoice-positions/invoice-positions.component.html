@@ -1,14 +1,14 @@
 <table class="table">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Item name</th>
       <th scope="col">Quantity</th>
       <th scope="col">Unit</th>
-      <th scope="col">netto</th>
-      <th scope="col">tax</th>
-      <th scope="col">gross</th>
-      <th scope="col"></th>
+      <th scope="col">Netto</th>
+      <th scope="col">Tax</th>
+      <th scope="col">Brutto</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,8 +22,7 @@
   </tbody>
 </table>
 <div class="invoice-positions__actions">
-  <button (click)="addPosition()" type="button" class="btn btn-primary invoice-positions__action">
-    add position
-    <i class="fa fa-plus"></i>
+  <button (click)="addPosition()" type="button" class="btn btn-dark invoice-positions__action">
+    Add new item
   </button>
 </div>
