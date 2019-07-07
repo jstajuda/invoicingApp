@@ -12,7 +12,7 @@
     <div class="form-group">
         <label for="taxNumber">{{ name.value ? name.value : 'Company'}}'s tax number</label>
         <input class="form-control" type="text" id="taxNumber" name="taxNumber" placeholder="Enter company's tax number" formControlName="taxNumber">
-        <div class="alert alert-danger" *ngIf="taxNumber.invalid && (taxNumber.dirty || taxNumber.touched)">Company's tax number must be exactly 9 characters long!</div>
+        <div class="alert alert-danger" *ngIf="taxNumber.invalid && (taxNumber.dirty || taxNumber.touched)">Company's tax number must be exactly 10 characters long!</div>
     </div>
 
     <!-- streetAddress -->
@@ -42,7 +42,3 @@
     <!-- submit -->
     <button class="btn btn-primary" [disabled]="!editCustomerForm.valid">Update customer</button>
 </form>
-
-<pre>
-    {{this.customer | json}}
-</pre>

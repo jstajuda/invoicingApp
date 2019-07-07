@@ -12,8 +12,7 @@ export interface Client {
 }
 
 export interface Invoice {
-    seller?: Customer;
-    buyer?: Customer;
+    client?: Customer;
     saleDate: Date;
     items: InvoiceItem[];
 }

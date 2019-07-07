@@ -1,5 +1,8 @@
+import { SettingsRepository } from './../model/settings/settingsRepository';
+import { CustomerRepository } from './../model/customer/customer-repository';
 import { Component, OnInit, Input } from '@angular/core';
 import { Customer } from '../model/customer/customer';
+import { Settings } from '../model/settings/settings';
 
 @Component({
   selector: 'app-invoice-header',
@@ -8,18 +11,21 @@ import { Customer } from '../model/customer/customer';
 })
 export class InvoiceHeaderComponent implements OnInit {
   
-  @Input()
-  seller: Customer;
+  settings: Settings;
+  customers: Customer[];
+  client: Customer;
 
-  @Input()
-  buyer: Customer;
-
-  constructor() { 
-    this.seller = new Customer(1, 'Seller', '123456789', 'street 1/2', 'city', '12-345', '123 456 789');
-    this.buyer = new Customer(1, 'Buyer', '123456789', 'street 1/2', 'city', '12-345', '123 456 789');
+  constructor(private customerRepo: CustomerRepository,
+              private settingsRepo: SettingsRepository) { 
+    this.settings = settingsRepo.getSettings();
+    this.customers = this.customerRepo.getAll();
   }
 
   ngOnInit() {
+  }
+
+  selectClient(id: number) {
+    this.client = this.customerRepo.getById(id);
   }
 
 }

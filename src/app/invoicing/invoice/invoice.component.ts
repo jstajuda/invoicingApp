@@ -19,8 +19,7 @@ export class InvoiceComponent implements OnInit {
     this.invoice = {
       saleDate: new Date(),
       items: [],
-      seller: new Customer(1, 'Seller from invoice', '123456789', 'street 1/2', 'city', '12-345', '123 456 789'),
-      buyer: new Customer(1, 'Buyer from invoice', '123456789', 'street 1/2', 'city', '12-345', '123 456 789')
+      client: new Customer(1, 'Buyer from invoice', '123456789', 'street 1/2', 'city', '12-345', '123 456 789')
     }
 
     this.invoiceSummary = this.recalculateSummary(this.invoice);

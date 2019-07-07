@@ -1,4 +1,7 @@
+import { SettingsRepository } from './../../invoicing/model/settings/settingsRepository';
+import { SettingsComponent } from './../../invoicing/settings/settings.component';
 import { Component, OnInit } from '@angular/core';
+import { Settings } from 'src/app/invoicing/model/settings/settings';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  settings: Settings;
+
+  constructor(private settingsRepo: SettingsRepository) { }
 
   ngOnInit() {
+    this.settings = this.settingsRepo.getSettings();
   }
 
 }

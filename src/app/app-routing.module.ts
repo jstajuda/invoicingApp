@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { CustomersCreateComponent } from './invoicing/customers-create/customers-create.component';
 import { CustomersDetailsComponent } from './invoicing/customers-details/customers-details.component';
 import { CustomersEditComponent } from './invoicing/customers-edit/customers-edit.component';
+import { SettingsComponent } from './invoicing/settings/settings.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'customers/create', component: CustomersCreateComponent},
   {path: 'customers/:id', component: CustomersDetailsComponent},
   {path: 'customers/:id/edit', component: CustomersEditComponent},
+  {path: 'settings', component: SettingsComponent},
   {path: 'contact', component: ContactComponent}
 ];
 

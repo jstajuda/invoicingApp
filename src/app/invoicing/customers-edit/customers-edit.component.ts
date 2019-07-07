@@ -12,8 +12,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class CustomersEditComponent implements OnInit {
 
   customer: Customer;
-
-  editCustomerForm: FormGroup; 
+  editCustomerForm: FormGroup;
 
   get name() { return this.editCustomerForm.get('name'); }
   get taxNumber() { return this.editCustomerForm.get('taxNumber'); }
@@ -34,7 +33,7 @@ export class CustomersEditComponent implements OnInit {
   ngOnInit() {
     this.editCustomerForm = this.fb.group({
       name: [this.customer.name, [Validators.maxLength(255), Validators.minLength(3), Validators.required]],
-      taxNumber: [this.customer.taxNumber, [Validators.minLength(9), Validators.maxLength(9)]],
+      taxNumber: [this.customer.taxNumber, [Validators.minLength(10), Validators.maxLength(10)]],
       streetAddress: [this.customer.streetAddress],
       city: [this.customer.city],
       zipCode: [this.customer.zipCode],

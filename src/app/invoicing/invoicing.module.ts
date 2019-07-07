@@ -18,18 +18,20 @@ import { CustomerRepository } from './model/customer/customer-repository';
 import { CustomersCreateComponent } from './customers-create/customers-create.component';
 import { CustomersDetailsComponent } from './customers-details/customers-details.component';
 import { CustomersEditComponent } from './customers-edit/customers-edit.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsRepository } from './model/settings/settingsRepository';
 
 @NgModule({
   declarations: [InvoicePositionsComponent, InvoiceComponent, SinglePositionComponent, InvoiceSummaryComponent, 
     CustomersComponent, InvoiceHeaderComponent, SingleCustomerPositionComponent, CustomersCreateComponent, 
-    CustomersDetailsComponent, CustomersEditComponent],
+    CustomersDetailsComponent, CustomersEditComponent, SettingsComponent],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
-  exports: [InvoiceComponent],
+  exports: [InvoiceComponent, SettingsComponent],
   providers: [
     {
       provide: PriceCalculator, useFactory: () => new PriceCalculator()
@@ -42,6 +44,9 @@ import { CustomersEditComponent } from './customers-edit/customers-edit.componen
     },
     {
       provide: CustomerRepository, useFactory: () => new CustomerRepository()
+    },
+    {
+      provide: SettingsRepository, useFactory: () => new SettingsRepository()
     }
   ]
 })

@@ -22,15 +22,12 @@ export class CustomerRepository {
         this.lastId = this.customerList.length;
     }
 
-    OnInit() {
-    }
-
     getAll(): Customer[] {
         return this.customerList;
     }
 
     getById(id: number): Customer {
-        return this.customerList.find(c => c.id === id);
+        return this.customerList.find(c => c.id == id);
     }
 
     add(customer: Customer) {

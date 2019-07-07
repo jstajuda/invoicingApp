@@ -1,10 +1,36 @@
 <section class="d-flex">
     <div class="w-50">
-        <h2>{{seller.name}}</h2>
+        <table class="table" style="max-width: 80%">
+            <thead class="">
+                <th>Seller</th>
+                <th>{{settings.name}}</th>
+            </thead>
+            <tr><th>Tax Number</th><td>{{settings.taxNumber}}</td></tr>
+            <tr><th>Street Address</th><td>{{settings.streetAddress}}</td></tr>
+            <tr><th>City</th><td>{{settings.city}}</td></tr>
+            <tr><th>Zip Code</th><td>{{settings.zipCode}}</td></tr>
+            <tr><th>Phone Number</th><td>{{settings.phoneNumber}}</td></tr>
+        </table>
     </div>
     
-    <div>
-        <h2>{{buyer.name}}</h2>
+    <div class="w-50">
+        <table class="table" style="max-width: 80%">
+            <thead class="">
+                <th>Buyer</th>
+                <th>
+                    <select class="form-control" (change)="selectClient($event.target.value)">
+                        <option value="" disabled selected>select client</option>
+                        <option *ngFor="let customer of customers" value="{{customer.id}}">{{customer.name}}</option>
+                    </select>
+                </th>
+            </thead>
+            <tr><th>Name</th><td>{{client?.name}}</td></tr>
+            <tr><th>Tax Number</th><td>{{client?.taxNumber}}</td></tr>
+            <tr><th>Street Address</th><td>{{client?.streetAddress}}</td></tr>
+            <tr><th>City</th><td>{{client?.city}}</td></tr>
+            <tr><th>Zip Code</th><td>{{client?.zipCode}}</td></tr>
+            <tr><th>Phone Number</th><td>{{client?.phoneNumber}}</td></tr>
+        </table>
     </div>
 </section>
 

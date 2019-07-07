@@ -1,6 +1,10 @@
-<h2>Create new customer</h2>
+<h2>Invoicing settings</h2>
 
-<form class="form" [formGroup]="createCustomerForm" (ngSubmit)="createCustomer()" style="max-width: 600px; margin: 0 auto">
+<div class="alert alert-success" *ngIf="updated">
+    Settings updated successfully.
+</div>
+
+<form class="form" [formGroup]="settingsForm" (ngSubmit)="updateSettings()" style="max-width: 600px; margin: 0 auto">
     <!-- name -->
     <div class="form-group">
         <label for="name">Company Name</label>
@@ -40,5 +44,5 @@
     </div>
 
     <!-- submit -->
-    <button class="btn btn-primary" [disabled]="!createCustomerForm.valid">Create customer</button>
+    <button class="btn btn-primary" [disabled]="!settingsForm.valid || !settingsForm.touched">Update settings</button>
 </form>

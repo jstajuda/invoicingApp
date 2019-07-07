@@ -13,7 +13,7 @@ export class CustomersCreateComponent implements OnInit {
 
   createCustomerForm = this.fb.group({
     name: ['', [Validators.maxLength(255), Validators.minLength(3), Validators.required]],
-    taxNumber: ['', [Validators.minLength(9), Validators.maxLength(9)]],
+    taxNumber: ['', [Validators.minLength(10), Validators.maxLength(10)]],
     streetAddress: [''],
     city: [''],
     zipCode: [''],
